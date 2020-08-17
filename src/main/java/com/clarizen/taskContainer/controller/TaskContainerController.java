@@ -1,4 +1,4 @@
-package com.clarizen.taskContainer.Controller;
+package com.clarizen.taskContainer.controller;
 
 import com.clarizen.taskContainer.exceptions.DataNotFoundInDBException;
 import com.clarizen.taskContainer.model.Task;
