@@ -1,8 +1,6 @@
-package com.clarizen.taskContainer.utils;
+package com.clarizen.taskContainer.exceptions;
 
 import org.springframework.http.HttpStatus;
-
-import java.util.List;
 
 public class ApiError {
 

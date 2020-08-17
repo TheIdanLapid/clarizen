@@ -62,12 +62,26 @@ public class Task {
         return priority;
     }
 
+
+
     public String getDescription() {
         return description;
     }
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", dueDate=" + dueDate +
+                ", taskContainerId=" + taskContainerId +
+                ", priority=" + priority +
+                ", description='" + description + '\'' +
+                '}';
     }
 
 }

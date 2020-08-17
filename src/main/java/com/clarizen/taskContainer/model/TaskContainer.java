@@ -29,4 +29,12 @@ public class TaskContainer {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String toString() {
+        return "TaskContainer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

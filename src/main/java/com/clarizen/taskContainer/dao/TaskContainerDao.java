@@ -1,5 +1,6 @@
 package com.clarizen.taskContainer.dao;
 
+import com.clarizen.taskContainer.exceptions.DataNotFoundInDBException;
 import com.clarizen.taskContainer.model.Task;
 import com.clarizen.taskContainer.model.TaskContainer;
 
@@ -9,29 +10,31 @@ import java.util.UUID;
 
 public interface TaskContainerDao {
 
-    int createContainer(UUID id, TaskContainer container);
+    long createContainer(UUID id, TaskContainer container);
 
-    default int createContainer(TaskContainer container){
+    default long createContainer(TaskContainer container){
         UUID id = UUID.randomUUID();
         return  createContainer(id,container);
     }
 
-    UUID createTaskInContainer(UUID taskId, Task task, UUID containerID);
+    UUID createTaskInContainer(UUID taskId, Task task, UUID containerID) throws DataNotFoundInDBException;
 
-    default UUID createTaskInContainer(Task task, UUID containerID){
+    default UUID createTaskInContainer(Task task, UUID containerID) throws DataNotFoundInDBException {
         UUID taskId = UUID.randomUUID();
         return  createTaskInContainer(taskId, task ,containerID);
     }
 
-    Optional<Task> getTaskByIds(UUID containerId, UUID taskId);
+    Optional<Task> getTaskByIds(UUID containerId, UUID taskId) throws DataNotFoundInDBException;
 
-    List<Task> getAllTasksInContainers(UUID containerId);
+    List<Task> getAllTasksInContainers(UUID containerId) throws DataNotFoundInDBException;
 
-    int deleteContainer(UUID containerId);
+    long deleteContainer(UUID containerId) throws DataNotFoundInDBException;
 
-    int deleteTaskInContainer(UUID containerId , UUID taskID);
+    long deleteTaskInContainer(UUID containerId , UUID taskID) throws DataNotFoundInDBException;
 
-    int updateTaskInContainer(UUID containerId, UUID taskId, Task taskToUpdate);
+    long updateTaskInContainer(UUID containerId, UUID taskId, Task taskToUpdate) throws DataNotFoundInDBException;
 
-    int updateTaskPriority(UUID taskId, String priority);
+    long updateTaskPriority(UUID taskId, Task.Level priority);
+
+
 }

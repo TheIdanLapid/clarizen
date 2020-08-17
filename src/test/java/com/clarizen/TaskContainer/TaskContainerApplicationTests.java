@@ -1,4 +1,4 @@
-package com.clarizen.taskContainer;
+package com.clarizen.TaskContainer;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
